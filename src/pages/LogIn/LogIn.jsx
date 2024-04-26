@@ -42,12 +42,12 @@ const LogIn = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const pwd = event.target.password.value;
-        login(auth,email,pwd)
+        login(email,pwd)
         .then(()=>{
             console.log("log in");
         })
         .catch(err=>{
-            console.log(err);
+            toast(err.message);
         })
         
     }
@@ -55,7 +55,7 @@ const LogIn = () => {
     return (
         <div>
             <Helmet>
-                <title>Log In - Five Star</title>
+                <title>Log In - Best Tour</title>
             </Helmet>
             <div className="flex items-center justify-center lg:w-1/2 md:w-4/5 w-full mx-auto p-2">
                 <div className="bg-white shadow-sm rounded-md p-4 w-full mx-auto">
@@ -77,7 +77,7 @@ const LogIn = () => {
                         </div>
 
                         <div className="flex items-center justify-center">
-                        <p>If you want to create an account <Link className="text-red-500" to="/signUp">Register</Link></p>
+                        <p>If you want to create an account <Link className="text-red-500" to="/register">Register</Link></p>
                         </div>
                         <div className="divider divider-info">OR</div>
                     </form>
