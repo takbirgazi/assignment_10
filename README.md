@@ -21,6 +21,7 @@
 **Name Of NPM package**
 * react-helmet
 * prop-types
+* react-toastify
 
 **Require NPM package**
 * lottie-react
