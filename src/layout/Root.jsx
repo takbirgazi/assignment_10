@@ -8,7 +8,6 @@ const Root = () => {
                 <Outlet></Outlet>
             </div>
 
-
         </div>
     );
 };

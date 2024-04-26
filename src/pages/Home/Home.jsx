@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
     return (
@@ -6,7 +7,9 @@ const Home = () => {
             <Helmet>
                 <title>Home - Best Tour</title>
             </Helmet>
-            This is Home Page 
+            <Fade>
+             This is Home Page 
+            </Fade>
         </div>
     );
 };
