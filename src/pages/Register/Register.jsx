@@ -22,10 +22,11 @@ const Register = () => {
         setErrMsg("");
         setSuccMsg("");
         const name = event.target.name.value;
-        const photo = event.target.photourl.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const photoUrl = event.target.photourl.value;
+        const user = {name,email,password,photoUrl};
+
         if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
             setErrMsg("Password must be 6 and minimum One Uppercase and One Lowercase");
             return;
@@ -36,7 +37,7 @@ const Register = () => {
             result.user.photoURL=photoUrl;
 
             updateProfile(auth.currentUser,{
-                displayName: name, photoURL: photo
+                displayName: name, photoURL: photoUrl
             })
             .then(()=>{
                 navigate("/");
@@ -44,7 +45,15 @@ const Register = () => {
             .catch(err=>{
                 console.error(err);
             })
-            // console.log(result.user);
+            fetch(`http://localhost:5000/user`,{
+                method: "POST",
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
             setSuccMsg("Account Created Successfully!");
             toast("Account Created Successfully!");
         })

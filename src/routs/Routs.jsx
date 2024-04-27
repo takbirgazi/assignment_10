@@ -4,6 +4,10 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import LogIn from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
+import AllSpot from "../pages/AllSpot/AllSpot";
+import AddSpot from "../pages/AddSpot/AddSpot";
+import MyList from "../pages/MyList/MyList";
+import SingleTouristCard from "../pages/TouristsSpots/SingleTouristCard";
 
 
 const routs = createBrowserRouter([
@@ -14,7 +18,8 @@ const routs = createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader: ()=> fetch(`http://localhost:5000/spots`)
             },
             {
                 path:"/login",
@@ -23,6 +28,23 @@ const routs = createBrowserRouter([
             {
                 path:"/register",
                 element: <Register></Register>
+            },
+            {
+                path:"/allspot",
+                element: <AllSpot></AllSpot>
+            },
+            {
+                path:"/addspot",
+                element: <AddSpot></AddSpot>
+            },
+            {
+                path:"/mylist",
+                element: <MyList></MyList>
+            },
+            {
+                path:'/spots/:id',
+                element: <SingleTouristCard></SingleTouristCard>,
+                loader: ({params})=> fetch(`http://localhost:5000/spots/${params.id}`)
             }
         ]
     }
