@@ -1,23 +1,43 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoIosMoon } from "react-icons/io";
 import { IoIosSunny } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const NavBar = () => {
+    const {user, logOut}= useContext(AuthContext);
+    const navigate = useNavigate()
+    const logOutHndlr = ()=>{
+        logOut()
+        .then(()=> {
+            navigate('/')
+        })
+        .catch(err=> console.err(err))
+    }
     const links = 
                  <>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/allspot">All Tourists Spot</NavLink></li>
-                    <li><NavLink to="/addspot">Add Tourists Spot</NavLink></li>
-                    <li><NavLink to="/mylist">My List</NavLink></li>
-                    <li><NavLink to="/login">Log In</NavLink></li>
-                    <li><NavLink to="/register">Register</NavLink></li>
+                    {
+                        user ? 
+                        <>
+                            <li><NavLink to="/addspot">Add Tourists Spot</NavLink></li>
+                            <li><NavLink to="/mylist">My List</NavLink></li>
+                            <button onClick={logOutHndlr} className="p-2">Log Out</button>
+                        </>
+                        :
+                        <>
+                            <li><NavLink to="/login">Log In</NavLink></li>
+                            <li><NavLink to="/register">Register</NavLink></li>
+                        </>
+                    }
                  </>;
     const [night, setNight] = useState(false);
 
     const theameHndler = ()=>{
         setNight(!night);
     }
+
     return (
         <div className="bg-base-100 border-b">
             <div className="navbar w-11/12 mx-auto">
@@ -37,7 +57,8 @@ const NavBar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end flex gap-2">
+                    {user && <div className="border rounded-full w-10 h-10 flex items-center justify-center"><img className="rounded-full" src={user?.photoURL} /></div>}
                     <button onClick={theameHndler} className="border p-2 rounded-full text-xl"> {night ? <IoIosMoon /> : <IoIosSunny />}  </button>
                 </div>
             </div>

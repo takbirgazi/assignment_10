@@ -8,6 +8,7 @@ import AllSpot from "../pages/AllSpot/AllSpot";
 import AddSpot from "../pages/AddSpot/AddSpot";
 import MyList from "../pages/MyList/MyList";
 import SingleTouristCard from "../pages/TouristsSpots/SingleTouristCard";
+import PrivateRoute from './PrivateRoute';
 
 
 const routs = createBrowserRouter([
@@ -35,11 +36,11 @@ const routs = createBrowserRouter([
             },
             {
                 path:"/addspot",
-                element: <AddSpot></AddSpot>
+                element: <PrivateRoute><AddSpot></AddSpot></PrivateRoute>
             },
             {
                 path:"/mylist",
-                element: <MyList></MyList>
+                element: <PrivateRoute><MyList></MyList></PrivateRoute>
             },
             {
                 path:'/spots/:id',

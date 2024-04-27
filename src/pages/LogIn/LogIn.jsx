@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from "../../firebase/firebase.config";
@@ -13,6 +13,7 @@ const LogIn = () => {
     const gitHubProvider = new GithubAuthProvider();
     const {login} = useContext(AuthContext);
     const [showPwd, setShowPwd] = useState(false);
+    const navigate = useNavigate()
 
     const eyeHandler =()=>{
         setShowPwd(!showPwd);
@@ -44,7 +45,7 @@ const LogIn = () => {
         const pwd = event.target.password.value;
         login(email,pwd)
         .then(()=>{
-            console.log("log in");
+            navigate('/');
         })
         .catch(err=>{
             toast(err.message);
