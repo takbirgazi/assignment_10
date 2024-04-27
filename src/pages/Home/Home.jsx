@@ -3,6 +3,8 @@ import { Fade } from "react-awesome-reveal";
 import Slider from "../Slider/Slider";
 import TouristsSpots from "../TouristsSpots/TouristsSpots";
 import Countries from "../Countries/Countries";
+import AboutUs from "../AboutUs/AboutUs";
+import ContactUs from "../ContactUs/ContactUs";
 
 const Home = () => {
     return (
@@ -15,6 +17,8 @@ const Home = () => {
              <div className="w-11/12 mx-auto">
                 <TouristsSpots></TouristsSpots>
                 <Countries></Countries>
+                <AboutUs></AboutUs>
+                <ContactUs></ContactUs>
              </div>
             </Fade>
         </div>
