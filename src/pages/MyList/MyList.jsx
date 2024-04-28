@@ -21,18 +21,22 @@ const MyList = () => {
                     <thead>
                         <tr>
                             <th>S/L</th>
+                            <th>Your Name</th>
                             <th>Spot Name</th>
                             <th>Country</th>
                             <th>Location</th>
+                            <th>Your Email</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                            myList.map((list, ind)=> <tr key={ind}>
                                 <th>{ind+1}</th>
+                                <th>{list.your_name}</th>
                                 <td>{list.tourists_spot_name}</td>
                                 <td>{list.country_Name}</td>
                                 <td>{list.location}</td>
+                                <td>{list.your_email}</td>
                             </tr>) 
                         }
                     </tbody>
