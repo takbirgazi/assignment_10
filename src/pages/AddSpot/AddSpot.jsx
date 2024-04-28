@@ -35,12 +35,12 @@ const AddSpot = () => {
             body: JSON.stringify(touristInfo)
         })
         .then(res => res.json())
-        .then(touristInfo => console.log(touristInfo))
-
+        .then(()=> {
+            form.reset();
+            toast('Add Successfully');
+        })
         setErrMsg("");
         setSuccMsg("");
-        console.log(touristInfo);
-
         }
 
     return (
