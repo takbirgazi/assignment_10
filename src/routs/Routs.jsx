@@ -20,7 +20,7 @@ const routs = createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>,
-                loader: ()=> fetch(`http://localhost:5000/spots`)
+                loader: ()=> fetch('http://localhost:5000/spots')
             },
             {
                 path:"/login",
@@ -32,7 +32,8 @@ const routs = createBrowserRouter([
             },
             {
                 path:"/allspot",
-                element: <AllSpot></AllSpot>
+                element: <AllSpot></AllSpot>,
+                loader: ()=> fetch('http://localhost:5000/allspots')
             },
             {
                 path:"/addspot",
