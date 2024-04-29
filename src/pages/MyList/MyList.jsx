@@ -18,14 +18,14 @@ const MyList = () => {
             <h2 className="font-bold text-xl text-center py-5">My List</h2>
             <div className="overflow-x-auto">
                 <table className="table">
-                    <thead>
+                    <thead className="border-b-2 border-black">
                         <tr>
-                            <th>S/L</th>
-                            <th>Your Name</th>
-                            <th>Spot Name</th>
-                            <th>Country</th>
-                            <th>Location</th>
-                            <th>Your Email</th>
+                            <th className="text-black">S/L</th>
+                            <th className="text-black">Your Name</th>
+                            <th className="text-black">Spot Name</th>
+                            <th className="text-black">Country</th>
+                            <th className="text-black">Location</th>
+                            <th className="text-black">Your Email</th>
                         </tr>
                     </thead>
                     <tbody>
