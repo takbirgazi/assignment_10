@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 
 const SingleTouristCard = () => {
     const singleData =  useLoaderData();
-    console.log(singleData)
     return (
         <div className="w-10/12 mx-auto my-5 border rounded-xl">
             <div className="card bg-base-100 shadow-xl">

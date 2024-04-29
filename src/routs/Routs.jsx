@@ -9,6 +9,7 @@ import AddSpot from "../pages/AddSpot/AddSpot";
 import MyList from "../pages/MyList/MyList";
 import SingleTouristCard from "../pages/TouristsSpots/SingleTouristCard";
 import PrivateRoute from './PrivateRoute';
+import AllSpotDetails from "../pages/AllSpot/AllSpotDetails";
 
 
 const routs = createBrowserRouter([
@@ -47,6 +48,11 @@ const routs = createBrowserRouter([
                 path:'/spots/:id',
                 element: <SingleTouristCard></SingleTouristCard>,
                 loader: ({params})=> fetch(`https://backend-assignment-10.vercel.app/spots/${params.id}`)
+            },
+            {
+                path:'/allspot/:id',
+                element: <PrivateRoute><AllSpotDetails></AllSpotDetails></PrivateRoute>,
+                loader: ({params})=> fetch(`https://backend-assignment-10.vercel.app/allspot/${params.id}`)
             }
         ]
     }

@@ -37,7 +37,6 @@ const NavBar = () => {
     const theameHndler = ()=>{
         setNight(!night);
     }
-
     return (
         <div className="bg-base-100 border-b">
             <div className="navbar w-11/12 mx-auto">
@@ -58,7 +57,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-2">
-                    {user && <div className="border rounded-full w-10 h-10 flex items-center justify-center"><img className="rounded-full" src={user?.photoURL} /></div>}
+                    {user && <div className="border rounded-full w-10 h-10 flex items-center justify-center"><img className="rounded-full" src={user?.photoURL} title={user?.displayName} /></div>}
                     <button onClick={theameHndler} className="border p-2 rounded-full text-xl"> {night ? <IoIosMoon /> : <IoIosSunny />}  </button>
                 </div>
             </div>
