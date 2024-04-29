@@ -27,7 +27,7 @@ const AddSpot = () => {
         const your_name = user.displayName;
         const your_email = user.email;
         const touristInfo = {image,tourists_spot_name,country_Name,average_cost,short_description,seasonality,travel_time,totalVisitorsPerYear,location,your_name,your_email}
-        fetch(`http://localhost:5000/allspots`,{
+        fetch(`https://backend-assignment-10.vercel.app/allspots`,{
             method: "POST",
             headers:{
                 'content-type': 'application/json'

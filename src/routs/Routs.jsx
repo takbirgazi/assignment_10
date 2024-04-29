@@ -20,7 +20,7 @@ const routs = createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>,
-                loader: ()=> fetch('http://localhost:5000/spots')
+                loader: ()=> fetch('https://backend-assignment-10.vercel.app/spots')
             },
             {
                 path:"/login",
@@ -33,7 +33,7 @@ const routs = createBrowserRouter([
             {
                 path:"/allspot",
                 element: <AllSpot></AllSpot>,
-                loader: ()=> fetch('http://localhost:5000/allspots')
+                loader: ()=> fetch('https://backend-assignment-10.vercel.app/allspots')
             },
             {
                 path:"/addspot",
@@ -46,7 +46,7 @@ const routs = createBrowserRouter([
             {
                 path:'/spots/:id',
                 element: <SingleTouristCard></SingleTouristCard>,
-                loader: ({params})=> fetch(`http://localhost:5000/spots/${params.id}`)
+                loader: ({params})=> fetch(`https://backend-assignment-10.vercel.app/spots/${params.id}`)
             }
         ]
     }

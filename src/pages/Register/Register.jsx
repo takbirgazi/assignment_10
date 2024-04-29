@@ -45,7 +45,7 @@ const Register = () => {
             .catch(err=>{
                 console.error(err);
             })
-            fetch(`http://localhost:5000/user`,{
+            fetch(`https://backend-assignment-10.vercel.app/user`,{
                 method: "POST",
                 headers:{
                     'content-type': 'application/json'

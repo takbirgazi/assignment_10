@@ -6,7 +6,7 @@ const MyList = () => {
     const {user}  = useContext(AuthContext);
     const [myList, setMylist] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/allspots/${user?.email}`)
+        fetch(`https://backend-assignment-10.vercel.app/allspots/${user?.email}`)
         .then(res=> res.json())
         .then(data =>{
             setMylist(data);
