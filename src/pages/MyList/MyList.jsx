@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import swal from 'sweetalert';
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 
 
@@ -45,6 +47,9 @@ const MyList = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>My List - Best Tour</title>
+            </Helmet>
             <h2 className="font-bold text-xl text-center py-5">My List</h2>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -66,7 +71,7 @@ const MyList = () => {
                                 <td>{list.tourists_spot_name}</td>
                                 <td>{list.country_Name}</td>
                                 <td>{list.your_email}</td>
-                                <td className="flex gap-2"><button className="px-2 py-1 rounded border">Update</button> <button className="px-2 py-1 rounded border" onClick={()=>deleteHandler(list._id)}>Delete</button></td>
+                                <td className="flex gap-2"><Link className="px-2 py-1 rounded border" to={`/mylist/${list._id}`}>Update</Link> <button className="px-2 py-1 rounded border" onClick={()=>deleteHandler(list._id)}>Delete</button></td>
                             </tr>) 
                         }
                     </tbody>
