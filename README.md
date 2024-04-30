@@ -23,6 +23,7 @@
 * prop-types
 * react-toastify
 * react-icons
+* sweetalert 
 
 **Require NPM package**
 * lottie-react
